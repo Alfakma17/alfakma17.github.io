@@ -4,35 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alfakma Jaya</title>
-  <link rel="icon" href="res/ALFAKMAJAYA.webp">
-  <meta property="og:title" content="Alfakma Jaya">
-  <meta property="og:image" content="https://raw.githubusercontent.com/Alfakma17/alfakma.github.io/refs/heads/main/res/ALFAKMAJAYA.webp">
+  <link rel="icon" href="/res/ALFAKMAJAYA.webp"/>
   <style>
     body {
       margin: 0;
       font-family: "Segoe UI", Arial, sans-serif;
       background: #f8fafc;
     }
-
-    /* Topbar */
+    @font-face {
+      font-family: bfdi;
+      src: url(/res/Shag-Lounge.otf);
+    }
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: linear-gradient(180deg, #d83131 0%, #ffa5a5 100%);
       color: #0f172a;
-      padding: 12px 24px;
+      padding: 13px 17px;
       position: sticky;
       top: 0;
       z-index: 1000;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
-    
-    /* Logo area */
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px; /* space between icon and text */
+      gap: 10px;
     }
 
     .logo img.icon {
@@ -66,44 +64,6 @@
       color: #d1b2b2;
     }
 
-    /* Hamburger (mobile) */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      cursor: pointer;
-    }
-
-    .menu-toggle div {
-      width: 26px;
-      height: 3px;
-      
-      border-radius: 2px;
-    }
-
-    /* Responsive */
-    @media (max-width: 540px) {
-      .navbar {
-        flex-wrap: wrap;
-      }
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        padding: 15px 0;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-    }
     main {
       padding: 0;
       text-align: center;
@@ -115,6 +75,14 @@
     .banner { 
       width: 100%;
     }
+    .subtitle {
+      padding: 20px;
+      font-family: bfdi;
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: 15px;
+      color: #584b4b;
+    }
     .title {
       padding-top: 35px;
       font-family:'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -122,6 +90,23 @@
       font-weight: 640;
       margin-bottom: 20px;
       color: #ff3d3d;
+    }
+    .characters {
+      font-family: bfdi;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    .char {
+      text-align: center;
+    }
+    .namechar {
+      margin-top: 5px;
+      font-family: bfdi;
+      color: #333;
+      font-size: 1.1rem;
     }
     .banner {
       width: 100%;
@@ -137,10 +122,31 @@
       margin: 15px 20px;
       color: #334155;
     }
+    .news {
+      font-size: 1.1rem;
+      margin: 15px 20px;
+      color: #633d3d;
+      border: none;
+    }
     .credit {
-      margin-top: 70px;
+      text-emphasis: legacy;
+      text-align: center;
+      padding: 26px;
+      color:#ffffff;
+      background-color: #5a2b2b;
+      margin-top: 60px;
+      font-size: 0.9rem;
+      font-weight: 300;
+    }
+    .downnav {
+      font-weight: 300;
       font-size: 0.7rem;
-      font-weight: 200;
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+    .downnav:hover {
+      text-decoration: underline;
     }
     .info a {
       color: #ff3d3d;
@@ -148,6 +154,30 @@
     }
     .info a:hover {
       text-decoration: underline;
+    }
+    .socialmedia {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .socialmedia a {
+      text-decoration: none;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .socialmedia a:hover {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+
+    .socialmedia img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
     }
     @media (max-width: 580px) {
       .banner {
@@ -158,11 +188,15 @@
         font-size: 0.65rem;
         margin: 10px 15px;
       }
+      .credit {
+        font-size: 0.6rem;
+        padding: 15px;
+      }
     }
     @keyframes fadeSlideIn {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
       }
       to {
         opacity: 1;
@@ -178,32 +212,71 @@
       <p>Alfakma Jaya</p>
     </div>
 
-    <div class="menu-toggle" id="menu-toggle">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-
     <div class="nav-links" id="nav-links">
       <a href="#home">Home</a>
       <a href="#games">Games</a>
     </div>
   </nav>
-
-  <script>
-    const toggle = document.getElementById("menu-toggle");
-    const navLinks = document.getElementById("nav-links");
-    toggle.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
-    });
-  </script>
-
   <main class="hero">
     <div class="banner"></div>
     <div class="title">Alfakma</div>
-    <p class="info">Welcome to official Alfakma Website. I made many fun projects and games here.</p>
-    <p class="info">I started programming on October 2023 while i was 12 years ago. And today, i have this website for see new information and news from my games. I usually make Clicker games and Puzzle games like <a href="https://alfakma17.github.io/CoinyClicker">Coiny Clicker</a>, Test Your Math!, and Don't Touch Red!</p>
-    <div class="credit">©Alfakma 2023-2025</div>
+      <p class="info">Welcome to official Alfakma Website. I made many fun projects and games here.</p>
+      <p class="info">I started programming on October 2023 while i was 12 years ago. I usually make Clicker games and Puzzle games like <a href="https://alfakma17.github.io/CoinyClicker">Coiny Clicker</a>, Test Your Math!, and Don't Touch Red!</p>
+    <div class="subtitle">Social media</div>
+      <div class="socialmedia" id="socialmedia"></div>
+    <div class="subtitle">My Favorite BFDI Characters</div>
+      <div class="characters" id="characters"></div>
+    <div class="title">News 📰</div>
+    <details>
+      <summary class="news">8 November, 2025. YAY, My own website!</summary>
+      <p class="news" id="news">
+    </details>
   </main>
+  <div class="credit">
+    <p>©Alfakma 2023-2025</p>
+    <a href="#" class="downnav">Feedback</a>
+    <a href="https://www.youtube.com/@alfakmajaya" class="downnav">Youtube</a>
+  </div>
 </body>
+<script>
+  news = document.getElementById("news");
+  news.innerHTML = "I made my own website! This website is for see new information and news from my games. I hope you like it!";
+
+  const chars = [
+    { name: "Pen", src: "res/penjaya.webp" },
+    { name: "Marker", src: "res/markery.webp"},
+    { name: "Coiny", src: "res/coinyepic.webp" },
+    { name: "Fries", src: "res/friesjaya.webp"},
+    { name: "Pencil", src: "res/penicillin.webp"},
+    { name: "Nickel", src: "res/nickel.webp"}
+  ];
+
+  const container = document.getElementById("characters");
+    chars.forEach(c => {
+      const div = document.createElement("div");
+      div.className = "char";
+      div.innerHTML = `
+        <img src="${c.src}" alt="${c.name}" width="120" height="120">
+        <p class="namechar">${c.name}</p>
+      `;
+      container.appendChild(div);
+    });
+
+    const socials = [
+    { name: "YouTube", src: "res/youtube.png", link: "https://www.youtube.com/@alfakmajaya" },
+    { name: "Penguinmod", src: "res/penguinmod.webp", link: "https://penguinmod.com/profile?user=alfakma17" },
+    { name: "GameJolt", src: "res/gamejolt.png", link: "https://gamejolt.com/@AlfakmaGames" },
+    { name: "Fandom", src: "res/fandom.webp", link: "https://battlefordreamisland.fandom.com/wiki/User:Alfakma17" },
+    { name: "Cocrea", src: "res/cocrea.png", link: "https://www.cocrea.world/@Alfakma17" }
+  ];
+
+  const socialContainer = document.getElementById("socialmedia");
+  socials.forEach(s => {
+    const a = document.createElement("a");
+    a.href = s.link;
+    a.target = "_blank";
+    a.innerHTML = `<img src="${s.src}" alt="${s.name}" title="${s.name}">`;
+    socialContainer.appendChild(a);
+  });
+</script>
 </html>
