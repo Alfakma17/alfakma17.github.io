@@ -38,7 +38,7 @@
       object-fit: contain;
     }
     .logo p {
-      font-family: "Comic Sans MS", cursive, sans-serif;
+      font-family: "Comic Sans MS", sans-serif;
       margin: 0;
       font-size: 1.3rem;
       font-weight: 650;
@@ -146,6 +146,50 @@
       font-family: bfdi;
       color: #333;
       font-size: 1.1rem;
+    }
+    .mygames {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 25px;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 800px;
+    }
+    .game {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 10px 15px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      width: 100%;
+      text-decoration: none;
+    }
+    .game:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+    }
+    .game img {
+      width: 150px;
+      height: 110px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    .game-info {
+      text-align: left;
+    }
+    .namegame {
+      margin: 0;
+      font-family: bfdi;
+      font-size: 1.3rem;
+    }
+    .releasedate {
+      margin-top: 5px;
+      font-size: 0.9rem;
+      color: #555;
     }
     .banner {
       width: 100%;
@@ -301,15 +345,16 @@
       <summary class="news">9 November, 2025 - YAY, My own website!</summary>
       <p class="news" id="news">
     </details>
+    <div class="title" id="games">Games</div>
+      <div class="mygames" id="mygames"></div>
   </main>
   <div class="credit">
     <p>©Alfakma 2023-2025</p>
-    <a href="#" class="downnav">Feedback</a>
+    <a href="feedback/index.html" class="downnav">Feedback</a>
     <a href="https://www.youtube.com/@alfakmajaya" class="downnav">Youtube</a>
   </div>
 </body>
 <script>
-  // Mobile nav toggle animation
   const menuToggle = document.getElementById("menu-toggle");
   const nav = document.getElementById("nav-links");
 
@@ -341,7 +386,7 @@
       container.appendChild(div);
     });
 
-    const socials = [
+  const socials = [
     { name: "YouTube", src: "res/youtube.png", link: "https://www.youtube.com/@alfakmajaya" },
     { name: "Penguinmod", src: "res/penguinmod.webp", link: "https://penguinmod.com/profile?user=alfakma17" },
     { name: "Roblox", src: "res/roblox.webp", link: "https://www.roblox.com/users/314058527/profile"},
@@ -349,7 +394,6 @@
     { name: "Fandom", src: "res/fandom.webp", link: "https://battlefordreamisland.fandom.com/wiki/User:Alfakma17" },
     { name: "Cocrea", src: "res/cocrea.png", link: "https://www.cocrea.world/@Alfakma17" }
   ];
-
   const socialContainer = document.getElementById("socialmedia");
   socials.forEach(s => {
     const a = document.createElement("a");
@@ -357,6 +401,27 @@
     a.target = "_blank";
     a.innerHTML = `<img src="${s.src}" alt="${s.name}" title="${s.name}">`;
     socialContainer.appendChild(a);
+  });
+  const gamess = [
+    { name: "Coiny Clicker", src: "res/cc.png", link: "https://alfakma17.github.io/CoinyClicker", releasedate: "1 December 2024", color: "#e4a42c" },
+    { name: "Coiny Clicker 2", src: "res/cc2.png", link: "https://alfakma17.github.io/CoinyClicker", releasedate: "Upcoming 1 December 2025", color: "#e4a42c" },
+    { name: "3D Planet Clicker", src: "res/plc.png", link: "https://studio.penguinmod.com/#0876643039", releasedate: "8 July 2025", color: "#1e2b94" },
+    { name: "Don't Touch Red!", src: "res/dtr.png", link: "https://studio.penguinmod.com/#6451884817", releasedate: "29 October 2025", color: "#ff0000" }
+  ];
+  const gamesContainer = document.getElementById("mygames");
+  gamess.forEach(g => {
+    const a = document.createElement("a");
+    a.href = g.link;
+    a.target = "_blank";
+    a.className = "game";
+    a.innerHTML = `
+      <img src="${g.src}" alt="${g.name}" title="${g.name}">
+      <div class="game-info">
+        <p class="namegame" style="color: ${g.color};">${g.name}</p>
+        <p class="releasedate">${g.releasedate}</p>
+      </div>
+    `;
+    gamesContainer.appendChild(a);
   });
 </script>
 </html>
