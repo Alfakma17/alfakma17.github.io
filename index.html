@@ -20,7 +20,7 @@
       justify-content: space-between;
       align-items: center;
       background: linear-gradient(180deg, #d83131 0%, #ffa5a5 100%);
-      color: #0f172a;
+      color: #fff;
       padding: 13px 17px;
       position: sticky;
       top: 0;
@@ -32,13 +32,11 @@
       align-items: center;
       gap: 10px;
     }
-
     .logo img.icon {
       height: 40px;
       width: 40px;
       object-fit: contain;
     }
-
     .logo p {
       font-family: "Comic Sans MS", cursive, sans-serif;
       margin: 0;
@@ -46,24 +44,65 @@
       font-weight: 650;
       color: #ffffff;
     }
-
-    /* Navigation links */
     .nav-links {
       display: flex;
       gap: 24px;
+      transition: all 0.3s ease;
     }
-
     .nav-links a {
       color: #ffffff;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.2s;
+      position: relative;
+      transition: color 0.2s, transform 0.2s;
     }
-
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      background: #ffffff;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+      transform-origin: right;
+    }
     .nav-links a:hover {
-      color: #d1b2b2;
+      color: #ffeaea;
+      transform: translateY(-2px);
     }
-
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    .nav-links a:active {
+      transform: scale(0.95);
+      opacity: 0.7;
+      transition: transform 0.1s, opacity 0.1s;
+    }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .menu-toggle.active div:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .menu-toggle.active div:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.active div:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
     main {
       padding: 0;
       text-align: center;
@@ -180,6 +219,31 @@
       object-fit: contain;
     }
     @media (max-width: 580px) {
+      .nav-links {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        background: rgba(221, 132, 132, 0.6);
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 15px 0;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-15px);
+      }
+
+      .nav-links.active {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+        transition: all 0.3s ease;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
       .banner {
         height: 180px; 
         background-position: center top;
@@ -211,24 +275,30 @@
       <img class="icon" src="/res/ALFAKMAJAYA.webp" alt="Logo">
       <p>Alfakma Jaya</p>
     </div>
-
+    <div class="menu-toggle" id="menu-toggle">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
     <div class="nav-links" id="nav-links">
       <a href="#home">Home</a>
       <a href="#games">Games</a>
+      <a href="#socialmedia">Social</a>
+      <a href="#news">News</a>
     </div>
   </nav>
-  <main class="hero">
+  <main class="hero"  id="home">
     <div class="banner"></div>
     <div class="title">Alfakma</div>
       <p class="info">Welcome to official Alfakma Website. I made many fun projects and games here.</p>
-      <p class="info">I started programming on October 2023 while i was 12 years ago. I usually make Clicker games and Puzzle games like <a href="https://alfakma17.github.io/CoinyClicker">Coiny Clicker</a>, Test Your Math!, and Don't Touch Red!</p>
+      <p class="info">I started programming on October 2023 while i was 12 years old. I usually make Clicker games and Puzzle games like <a href="https://alfakma17.github.io/CoinyClicker">Coiny Clicker</a>, Test Your Math!, and Don't Touch Red!</p>
     <div class="subtitle">Social media</div>
       <div class="socialmedia" id="socialmedia"></div>
     <div class="subtitle">My Favorite BFDI Characters</div>
       <div class="characters" id="characters"></div>
     <div class="title">News 📰</div>
     <details>
-      <summary class="news">8 November, 2025. YAY, My own website!</summary>
+      <summary class="news">9 November, 2025 - YAY, My own website!</summary>
       <p class="news" id="news">
     </details>
   </main>
@@ -239,6 +309,15 @@
   </div>
 </body>
 <script>
+  // Mobile nav toggle animation
+  const menuToggle = document.getElementById("menu-toggle");
+  const nav = document.getElementById("nav-links");
+
+  menuToggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
+    menuToggle.classList.toggle("active");
+  });
+
   news = document.getElementById("news");
   news.innerHTML = "I made my own website! This website is for see new information and news from my games. I hope you like it!";
 
@@ -265,7 +344,8 @@
     const socials = [
     { name: "YouTube", src: "res/youtube.png", link: "https://www.youtube.com/@alfakmajaya" },
     { name: "Penguinmod", src: "res/penguinmod.webp", link: "https://penguinmod.com/profile?user=alfakma17" },
-    { name: "GameJolt", src: "res/gamejolt.png", link: "https://gamejolt.com/@AlfakmaGames" },
+    { name: "Roblox", src: "res/roblox.webp", link: "https://www.roblox.com/users/314058527/profile"},
+    { name: "GameJolt", src: "res/gamejolt.png", link: "https://gamejolt.com/@AlfakmaGames"},
     { name: "Fandom", src: "res/fandom.webp", link: "https://battlefordreamisland.fandom.com/wiki/User:Alfakma17" },
     { name: "Cocrea", src: "res/cocrea.png", link: "https://www.cocrea.world/@Alfakma17" }
   ];
