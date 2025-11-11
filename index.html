@@ -134,9 +134,22 @@
       font-family: bfdi;
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 21px;
       flex-wrap: wrap;
       margin-top: 15px;
+    }
+    .charactersI {
+      display: inline-block;
+      background: #fff;
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+    }
+    .charactersI:hover {
+      transform: scale(1.05);
+      transition: transform 0.2s ease;
     }
     .char {
       text-align: center;
@@ -146,19 +159,20 @@
       font-family: bfdi;
       color: #333;
       font-size: 1.1rem;
+      text-decoration: none;
     }
     .mygames {
       display: grid;
       grid-template-columns: repeat(2, 1fr); /* two columns on desktop */
       gap: 25px;
       margin: 20px auto;
-      width: 90%;
-      max-width: 900px;
+      width: 92%;
+      max-width: 920px;
     }
     .game {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 12px;
       background: #fff;
       border-radius: 12px;
       padding: 10px 15px;
@@ -253,12 +267,10 @@
       text-decoration: none;
       transition: transform 0.2s ease, opacity 0.2s ease;
     }
-
     .socialmedia a:hover {
       transform: scale(1.1);
       opacity: 0.8;
     }
-
     .socialmedia img {
       width: 50px;
       height: 50px;
@@ -279,14 +291,12 @@
         pointer-events: none;
         transform: translateY(-15px);
       }
-
       .nav-links.active {
         opacity: 1;
         pointer-events: auto;
         transform: translateY(0);
         transition: all 0.3s ease;
       }
-
       .menu-toggle {
         display: flex;
       }
@@ -298,9 +308,12 @@
         font-size: 0.65rem;
         margin: 10px 15px;
       }
-      .credit {
+      .credit.p {
         font-size: 0.6rem;
         padding: 15px;
+      }
+      .credit.a {
+        font-size: 0.5rem;
       }
       .mygames {
         grid-template-columns: 1fr;
@@ -374,6 +387,15 @@
         })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <div class="subtitle" id="ambatukam">Audio memes</div>
+    <audio controls>
+      <source src="res/audio/ambatukam-harmony.mp3" type="audio/mpeg">
+      Ambatukam!
+    </audio>
+    <audio controls>
+      <source src="res/audio/metal-pipe.mp3" type="audio/mpeg">
+      Metal Pipe!
+    </audio>
   </main>
   <div class="credit">
     <p>©Alfakma 2023-2025</p>
@@ -393,7 +415,8 @@
   const newsContent = [
     { title: "9 November, 2025 - YAY, My own website!", content: "I made my own website! This website is for see new information and news from my games. I hope you like it!" },
     { title: "10 November, 2025 - Design Overhaul", content: "Yes! I have updated the website to much cooler and mobile friendly!" },
-    { title: "10 November, 2025 - Comments!", content: "Now you can leave comments on my website using my Disqus. Share your thoughts and feedback! Don't forget to log-in first." }
+    { title: "10 November, 2025 - Comments!", content: "Now you can leave comments on my website using my Disqus. Share your thoughts and feedback! Don't forget to log-in first." },
+    { title: "11 November, 2025 - Audio memes and More games!", content: "Added Audio memes for <i>idk</i> (just random features). Also, i've added more games, including my FIRST GAME EVER!!" }
   ];
     
 const container = document.getElementById("news");
@@ -408,12 +431,12 @@ const container = document.getElementById("news");
   });
 
   const chars = [
-    { name: "#1 Pen", src: "res/penjaya.webp" },
-    { name: "#2 Marker", src: "res/markery.webp"},
-    { name: "#3 Coiny", src: "res/coinyepic.webp" },
-    { name: "#4 Fries", src: "res/friesjaya.webp"},
-    { name: "#5 Pencil", src: "res/penicillin.webp"},
-    { name: "#6 Nickel", src: "res/nickel.webp"}
+    { name: "#1 Pen", namelink: "Pen", src: "res/penjaya.webp" },
+    { name: "#2 Marker", namelink: "Marker", src: "res/markery.webp"},
+    { name: "#3 Coiny", namelink: "Coiny", src: "res/coinyepic.webp" },
+    { name: "#4 Fries", namelink: "Fries", src: "res/friesjaya.webp"},
+    { name: "#5 Pencil", namelink: "Pencil", src: "res/penicillin.webp"},
+    { name: "#6 Nickel", namelink: "Nickel", src: "res/nickel.webp"}
   ];
 
   const charsContainer = document.getElementById("characters");
@@ -421,8 +444,10 @@ const container = document.getElementById("news");
       const div = document.createElement("div");
       div.className = "char";
       div.innerHTML = `
+      <a class="charactersI" style="text-decoration: none" href="https://battlefordreamisland.fandom.com/wiki/${c.namelink}" target="_blank">
         <img src="${c.src}" alt="${c.name}" width="120" height="120">
         <p class="namechar">${c.name}</p>
+      </a>
       `;
       charsContainer.appendChild(div);
     });
@@ -447,7 +472,13 @@ const container = document.getElementById("news");
     { name: "Coiny Clicker", src: "res/cc.png", link: "https://alfakma17.github.io/CoinyClicker", releasedate: "1 December 2024", color: "#e4a42c" },
     { name: "Coiny Clicker 2", src: "res/cc2.png", link: "https://alfakma17.github.io/CoinyClicker", releasedate: "Upcoming 1 December 2025", color: "#e4a42c" },
     { name: "3D Planet Clicker", src: "res/plc.png", link: "https://studio.penguinmod.com/#0876643039", releasedate: "8 July 2025", color: "#1e2b94" },
-    { name: "Don't Touch Red!", src: "res/dtr.png", link: "https://studio.penguinmod.com/#6451884817", releasedate: "29 October 2025", color: "#ff0000" }
+    { name: "Don't Touch Red!", src: "res/dtr.png", link: "https://studio.penguinmod.com/#6451884817", releasedate: "29 October 2025", color: "#ff0000" },
+    { name: "Os Clicker", src: "res/osc1.webp", link: "https://alfakmagames.itch.io/os-clicker", releasedate: "30 October 2023 (MY 1st GAME EVER)", color: "#2779cc" },
+    { name: "Os Clicker 2", src: "res/osc2.webp", link: "https://alfakmagames.itch.io/os-clicker-2", releasedate: "1 May 2024", color: "#5ca1e6" },
+    { name: "Os Clicker REMASTERED", src: "res/oscR.webp", link: "https://studio.penguinmod.com/#1178489008", releasedate: "Still Indev", color: "#83b9f0" },
+    { name: "Test Your Math!", src: "res/tym.webp", link: "https://studio.penguinmod.com/#0327177090", releasedate: "11 June 2024", color: "#21de2b" },
+    { name: "Test Your Math REMASTERED!", src: "res/tymR.webp", link: "https://studio.penguinmod.com/#7206014801", releasedate: "7 November 2025", color: "#3ad671" },
+    { name: "Super Miner Cat", src: "res/smc.webp", link: "https://studio.penguinmod.com/#6489431022", releasedate: "26 April 2025", color: "#d6a12b" }
   ];
   const gamesContainer = document.getElementById("mygames");
   gamess.forEach(g => {
