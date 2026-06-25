@@ -4,132 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alfakma Jaya</title>
-  <link rel="icon" href="/res/ALFAKMAJAYA.webp"/>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6376694717788933"
-     crossorigin="anonymous"></script>
+  <link rel="icon" href="/res/new_alfakma.webp"/>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6376694717788933" crossorigin="anonymous"></script>
+  <link href="style.css" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #f8fafc;
-    }
-    @font-face {
-      font-family: bfdi;
-      src: url(/res/Shag-Lounge.otf);
-    }
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: linear-gradient(180deg, #d83131 0%, #ffa5a5 100%);
-      color: #fff;
-      padding: 8px 16px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .logo img.icon {
-      height: 40px;
-      width: 40px;
-      object-fit: contain;
-    }
-    .logo p {
-      font-family: "Comic Sans MS", sans-serif;
-      margin: 0;
-      font-size: 1.3rem;
-      font-weight: 650;
-      color: #ffffff;
-    }
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      transition: all 0.3s ease;
-    }
-    .nav-links a {
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 500;
-      position: relative;
-      transition: color 0.2s, transform 0.2s;
-    }
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 100%;
-      height: 2px;
-      background: #ffffff;
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-      transform-origin: right;
-    }
-    .nav-links a:hover {
-      color: #ffeaea;
-      transform: translateY(-2px);
-    }
-    .nav-links a:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
-    .nav-links a:active {
-      transform: scale(0.95);
-      opacity: 0.7;
-      transition: transform 0.1s, opacity 0.1s;
-    }
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
-    .menu-toggle div {
-      width: 25px;
-      height: 3px;
-      background-color: #fff;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-    .menu-toggle.active div:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    .menu-toggle.active div:nth-child(2) {
-      opacity: 0;
-    }
-    .menu-toggle.active div:nth-child(3) {
-      transform: rotate(-45deg) translate(6px, -6px);
-    }
-    main {
-      padding: 0;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeSlideIn 0.7s ease-out forwards;
-      animation-delay: 0.2s;
-    }
-    .banner { 
-      width: 100%;
-    }
-    .subtitle {
-      padding: 20px;
-      font-family: bfdi;
-      font-size: 1.3rem;
-      font-weight: 400;
-      margin-bottom: 15px;
-      color: #584b4b;
-    }
-    .title {
-      padding-top: 35px;
+    .intro {
+      padding-top: 40px;
+      margin: 5px;
       font-family:'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-      font-size: 1.9rem;
-      font-weight: 640;
-      margin-bottom: 20px;
+      font-size: 1.5rem;
+      font-weight: 450;
+      margin-bottom: 30px;
       color: #ff3d3d;
     }
     .characters {
@@ -163,48 +48,6 @@
       font-size: 1.1rem;
       text-decoration: none;
     }
-    .mygames {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); /* two columns on desktop */
-      gap: 25px;
-      margin: 20px auto;
-      width: 92%;
-      max-width: 920px;
-    }
-    .game {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: #fff;
-      border-radius: 12px;
-      padding: 10px 15px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      text-decoration: none;
-    }
-    .game:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 5px 12px rgba(0,0,0,0.15);
-    }
-    .game img {
-      width: 140px;
-      height: 100px;
-      border-radius: 10px;
-      object-fit: cover;
-    }
-    .game-info {
-      text-align: left;
-    }
-    .namegame {
-      margin: 0;
-      font-family: bfdi;
-      font-size: 1.3rem;
-    }
-    .releasedate {
-      margin-top: 5px;
-      font-size: 0.9rem;
-      color: #555;
-    }
     .banner {
       width: 100%;
       height: 400px;
@@ -214,51 +57,42 @@
       background-position: center;
       display: block;
     }
-    .info {
-      font-size: 1rem;
-      margin: 15px 20px;
-      color: #334155;
-    }
     .news {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       margin: 15px 20px;
-      color: #633d3d;
+      color: #492121;
       border: none;
     }
-    .credit {
-      text-emphasis: legacy;
-      text-align: center;
-      padding: 26px;
-      color:#ffffff;
-      background-color: #5a2b2b;
-      margin-top: 60px;
-      font-size: 0.9rem;
-      font-weight: 300;
-    }
-    .downnav {
-      font-weight: 300;
-      font-size: 0.7rem;
-      color: #ffffff;
-      text-decoration: none;
-      margin-left: 10px;
-    }
-    .downnav:hover {
-      text-decoration: underline;
-    }
-    .info a {
-      color: #ff3d3d;
-      text-decoration: none;
-    }
-    .info a:hover {
-      text-decoration: underline;
-    }
     .socialmedia {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 25px;
-      flex-wrap: wrap;
-      margin-top: 10px;
+      width: 80%;
+      max-width: 700px;
+      margin: 0 auto;
+      justify-items: center;
+    }
+    .socialI {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      width: 100%;
+      max-width: 600px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 7px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      text-decoration: none;
+      color: #333;
+    }
+    .socialI:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .namesocial {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
     }
     .diskusi {
       margin: 30px auto;
@@ -270,7 +104,7 @@
       transition: transform 0.2s ease, opacity 0.2s ease;
     }
     .socialmedia a:hover {
-      transform: scale(1.1);
+      transform: scale(1.03);
       opacity: 0.8;
     }
     .socialmedia img {
@@ -278,51 +112,33 @@
       height: 50px;
       object-fit: contain;
     }
+    .newvideos {
+      width: 640px;
+      height: 360px;
+      border-radius: 12px;
+      margin-top: 15px;
+    }
     @media (max-width: 600px) {
-      .nav-links {
-        position: absolute;
-        top: 56px;
-        left: 0;
-        background: rgba(221, 132, 132, 0.6);
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        padding: 15px 0;
-        opacity: 0;
-        pointer-events: none;
-        transform: translateY(-15px);
+      .intro {
+        font-size: 1.15rem;
+        padding-top: 27px;
       }
-      .nav-links.active {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateY(0);
-        transition: all 0.3s ease;
-      }
-      .menu-toggle {
-        display: flex;
+      .newvideos {
+        width: 90%;
+        max-width: 560px;
+        height: width * 0.5625; /* Maintain 16:9 aspect ratio */
+        height: auto;
       }
       .banner {
         height: 180px; 
         background-position: center top;
-      }
-      .info {
-        font-size: 0.65rem;
-        margin: 10px 15px;
-      }
-      .credit.p {
-        font-size: 0.6rem;
-        padding: 15px;
-      }
-      .credit.a {
-        font-size: 0.5rem;
       }
       .mygames {
         grid-template-columns: 1fr;
       }
       .game {
         align-items: center;
-        width: 90%;
+        width: 80%;
       }
       .game img {
         width: 120px;
@@ -334,15 +150,8 @@
       .releasedate {
         font-size: 0.75rem;
       }
-    }
-    @keyframes fadeSlideIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      .news {
+        font-size: 1rem;
       }
     }
   </style>
@@ -350,7 +159,7 @@
 <body>
   <nav class="navbar">
     <div class="logo">
-      <img class="icon" src="/res/ALFAKMAJAYA.webp" alt="Logo">
+      <img class="icon" src="/res/new_alfakma.webp" alt="Logo">
       <p>Alfakma Jaya</p>
     </div>
     <div class="menu-toggle" id="menu-toggle">
@@ -359,25 +168,32 @@
       <div></div>
     </div>
     <div class="nav-links" id="nav-links">
-      <a href="#home">Home</a>
-      <a href="#games">Games</a>
-      <a href="#socialmedia">Social</a>
-      <a href="#news">News</a>
+      <a href="/index.html">Home</a>
+      <a href="games/index.html">Games</a>
+      <a href="#Social">Social</a>
     </div>
   </nav>
   <main class="hero"  id="home">
     <div class="banner"></div>
-    <div class="title">Alfakma</div>
-      <p class="info">Welcome to official Alfakma Website. I made many fun projects and games here.</p>
-      <p class="info">I started programming on October 2023 while i was 12 years old. I usually make Clicker games and Puzzle games like <a href="https://alfakma17.github.io/CoinyClicker">Coiny Clicker</a>, Test Your Math!, and Don't Touch Red!</p>
+    <div class="intro">Welcome to official Alfakma Website. I made many fun projects and games here</div>
+      <p class="info">Call me Alfakma, or my real name is Akma.</p>
+      <br>
     <div class="subtitle">Social media</div>
       <div class="socialmedia" id="socialmedia"></div>
     <div class="subtitle">My Favorite BFDI Characters</div>
       <div class="characters" id="characters"></div>
+    <div class="title">New Video</div>
+      <iframe
+        id="latestVideo"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        class="newvideos"
+        allowfullscreen>
+      </iframe>
     <div class="title">News 📰</div>
       <p class="news" id="news">
-    <div class="title" id="games">Games</div>
-      <div class="mygames" id="mygames"></div>
     <div class="title" id="comments">Comments</div>
     <div class="diskusi" id="disqus_thread"></div>
     <script>
@@ -400,26 +216,26 @@
     </audio>
   </main>
   <div class="credit">
-    <p>©Alfakma 2023-2025</p>
+    <p>©Alfakma 2023-2026</p>
     <a href="feedback/index.html" class="downnav">Feedback</a>
     <a href="https://www.youtube.com/@alfakmajaya" class="downnav">Youtube</a>
   </div>
 </body>
+<script src="nav.js"></script>
 <script>
-  const menuToggle = document.getElementById("menu-toggle");
-  const nav = document.getElementById("nav-links");
-
-  menuToggle.addEventListener("click", () => {
-    nav.classList.toggle("active");
-    menuToggle.classList.toggle("active");
+  fetch("latestvideo.json")
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("latestVideo").src = data.latestVideo;
   });
 
   const newsContent = [
-    { title: "9 November, 2025 - YAY, My own website!", content: "I made my own website! This website is for see new information and news from my games. I hope you like it!" },
-    { title: "10 November, 2025 - Design Overhaul", content: "Yes! I have updated the website to much cooler and mobile friendly!" },
-    { title: "10 November, 2025 - Comments!", content: "Now you can leave comments on my website using my Disqus. Share your thoughts and feedback! Don't forget to log-in first." },
+    { title: "25 June, 2026 - Revamped!", content: "Erm, yes. I've finally revamped some of my elements in my website. Also i moved the games section into it's own page " },
+    { title: "16 May, 2026 - FINALLY!", content: "FINALLY I UPDATED MY WEBSITE! Also i added so you can play Test Your Math REMASTERED in website..." },
     { title: "11 November, 2025 - Audio memes and More games!", content: "Added Audio memes for <i>idk</i> (just random features). Also, i've added more games, including my FIRST GAME EVER!!" },
-    { title: "16 May 2026 - FINALLY!", content: "FINALLY I UPDATED MY WEBSITE! Also i added so you can play Test Your Math REMASTERED in website..." }
+    { title: "10 November, 2025 - Comments!", content: "Now you can leave comments on my website using my Disqus. Share your thoughts and feedback! Don't forget to log-in first." },
+    { title: "10 November, 2025 - Design Overhaul", content: "Yes! I have updated the website to much cooler and mobile friendly!" },
+    { title: "9 November, 2025 - YAY, My own website!", content: "I made my own website! This website is for see new information and news from my games. I hope you like it!" }
   ];
     
 const container = document.getElementById("news");
@@ -456,47 +272,30 @@ const container = document.getElementById("news");
     });
 
   const socials = [
-    { name: "YouTube", src: "res/youtube.png", link: "https://www.youtube.com/@alfakmajaya" },
-    { name: "Penguinmod", src: "res/penguinmod.webp", link: "https://penguinmod.com/profile?user=alfakma17" },
-    { name: "Roblox", src: "res/roblox.webp", link: "https://www.roblox.com/users/314058527/profile"},
-    { name: "GameJolt", src: "res/gamejolt.png", link: "https://gamejolt.com/@AlfakmaGames"},
-    { name: "Fandom", src: "res/fandom.webp", link: "https://battlefordreamisland.fandom.com/wiki/User:Alfakma17" },
-    { name: "Cocrea", src: "res/cocrea.png", link: "https://www.cocrea.world/@Alfakma17" }
+    { name: "YouTube (@alfakmajaya)", src: "res/youtube.png", link: "https://www.youtube.com/@alfakmajaya" },
+    { name: "Scratch (azkaakma2)", src: "res/scratch.webp", link: "https://scratch.mit.edu/users/azkaakma2/" },
+    { name: "Penguinmod (alfakma17)", src: "res/penguinmod.webp", link: "https://penguinmod.com/profile?user=alfakma17" },
+    { name: "Roblox (@azkaakma2)", src: "res/roblox.webp", link: "https://www.roblox.com/users/314058527/profile"},
+    { name: "Gamebanana (Alfakma)", src: "res/gamebanana.png", link: "https://gamebanana.com/members/4895173" },
+    { name: "GameJolt (@AlfakmaGames)", src: "res/gamejolt.png", link: "https://gamejolt.com/@AlfakmaGames"},
+    { name: "Itch.io (AlfakmaGames)", src: "res/itch-io.png", link: "https://alfakmagames.itch.io/" },
+    { name: "GitHub (Alfakma17)", src: "res/github.png", link: "https://github.com/Alfakma17" },
+    { name: "Cocrea (@Alfakma17)", src: "res/cocrea.png", link: "https://www.cocrea.world/@Alfakma17" }
   ];
   const socialContainer = document.getElementById("socialmedia");
   socials.forEach(s => {
     const a = document.createElement("a");
+
     a.href = s.link;
     a.target = "_blank";
-    a.innerHTML = `<img src="${s.src}" alt="${s.name}" title="${s.name}">`;
-    socialContainer.appendChild(a);
-  });
-  const gamess = [
-    { name: "Coiny Clicker", src: "res/cc.png", link: "https://alfakma17.github.io/CoinyClicker", releasedate: "1 December 2024", color: "#e4a42c" },
-    { name: "Coiny Clicker 2", src: "res/cc2.png", link: "https://alfakma17.github.io/CoinyClicker", releasedate: "17 December 2025", color: "#e4a42c" },
-    { name: "3D Planet Clicker", src: "res/plc.png", link: "https://studio.penguinmod.com/#0876643039", releasedate: "8 July 2025", color: "#1e2b94" },
-    { name: "Don't Touch Red!", src: "res/dtr.png", link: "https://studio.penguinmod.com/#6451884817", releasedate: "29 October 2025", color: "#ff0000" },
-    { name: "Os Clicker", src: "res/osc1.webp", link: "https://alfakmagames.itch.io/os-clicker", releasedate: "30 October 2023 (MY 1st GAME EVER)", color: "#2779cc" },
-    { name: "Os Clicker 2", src: "res/osc2.webp", link: "https://alfakmagames.itch.io/os-clicker-2", releasedate: "1 May 2024", color: "#5ca1e6" },
-    { name: "Os Clicker REMASTERED", src: "res/oscR.webp", link: "https://studio.penguinmod.com/#1178489008", releasedate: "Still Indev", color: "#83b9f0" },
-    { name: "Test Your Math!", src: "res/tym.webp", link: "https://studio.penguinmod.com/#0327177090", releasedate: "11 June 2024", color: "#21de2b" },
-    { name: "Test Your Math REMASTERED!", src: "res/tymR.webp", link: "games/tymr.html", releasedate: "7 November 2025", color: "#3ad671" },
-    { name: "Super Miner Cat", src: "res/smc.webp", link: "https://studio.penguinmod.com/#6489431022", releasedate: "26 April 2025", color: "#d6a12b" }
-  ];
-  const gamesContainer = document.getElementById("mygames");
-  gamess.forEach(g => {
-    const a = document.createElement("a");
-    a.href = g.link;
-    a.target = "_blank";
-    a.className = "game";
+    a.className = "socialI";
+
     a.innerHTML = `
-      <img src="${g.src}" alt="${g.name}" title="${g.name}">
-      <div class="game-info">
-        <p class="namegame" style="color: ${g.color};">${g.name}</p>
-        <p class="releasedate">${g.releasedate}</p>
-      </div>
+      <img src="${s.src}" alt="${s.name}">
+      <p class="namesocial">${s.name}</p>
     `;
-    gamesContainer.appendChild(a);
+
+    socialContainer.appendChild(a);
   });
 </script>
 </html>

@@ -1,0 +1,205 @@
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f8fafc;
+}
+@font-face {
+    font-family: bfdi;
+    src: url(/res/Shag-Lounge.otf);
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(180deg, #d83131 0%, #ffa5a5 100%);
+    color: #fff;
+    padding: 8px 16px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo img.icon {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+}
+.logo p {
+    font-family: "Comic Sans MS", sans-serif;
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 650;
+    color: #ffffff;
+}
+.nav-links {
+    display: flex;
+    gap: 24px;
+    transition: all 0.3s ease;
+}
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.2s, transform 0.2s;
+}
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: #ffffff;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: right;
+}
+.nav-links a:hover {
+    color: #ffeaea;
+    transform: translateY(-2px);
+}
+.nav-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+.nav-links a:active {
+    transform: scale(0.95);
+    opacity: 0.7;
+    transition: transform 0.1s, opacity 0.1s;
+}
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+.menu-toggle div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+.menu-toggle.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.active div:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+main {
+    padding: 0;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeSlideIn 0.7s ease-out forwards;
+    animation-delay: 0.2s;
+}
+.banner { 
+    width: 100%;
+}
+.subtitle {
+    padding: 20px;
+    font-family: bfdi;
+    font-size: 1.7rem;
+    font-weight: 400;
+    margin-bottom: 12px;
+    color: #584b4b;
+}
+.title {
+    padding-top: 45px;
+    font-family:'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.9rem;
+    font-weight: 640;
+    margin-bottom: 20px;
+    color: #ff3d3d;
+}
+.credit {
+    text-emphasis: legacy;
+    text-align: center;
+    padding: 26px;
+    color:#ffffff;
+    background-color: #5a2b2b;
+    margin-top: 60px;
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+.downnav {
+    font-weight: 300;
+    font-size: 0.7rem;
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 10px;
+}
+.downnav:hover {
+    text-decoration: underline;
+}
+.info {
+    font-size: 1.4rem;
+    margin: 10px 20px;
+    color: #334155;
+}
+.info a {
+    color: #ff3d3d;
+    text-decoration: none;
+}
+.info a:hover {
+    text-decoration: underline;
+}
+@media (max-width: 600px) {
+    .nav-links {
+    position: absolute;
+    top: 56px;
+    left: 0;
+    background: rgba(221, 132, 132, 0.6);
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-15px);
+    }
+    .nav-links.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+    .info {
+    font-size: 0.95rem;
+    margin: 6px 15px;
+    }
+    .credit.p {
+    font-size: 0.6rem;
+    padding: 15px;
+    }
+    .credit.a {
+    font-size: 0.5rem;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+}
+@keyframes fadeSlideIn {
+    from {
+    opacity: 0;
+    transform: translateY(20px);
+    }
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+}

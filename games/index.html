@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alfakma Jaya</title>
+    <link rel="icon" href="/res/new_alfakma.webp"/>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6376694717788933" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="\style.css">
+</head>
+<style>
+    .mygames {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* two columns on desktop */
+      gap: 25px;
+      margin: 20px auto;
+      width: 92%;
+      max-width: 920px;
+    }
+    .game {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 10px 15px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+    }
+    .game:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+    }
+    .game img {
+      width: 140px;
+      height: 100px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    .game-info {
+      text-align: left;
+    }
+    .namegame {
+      margin: 0;
+      font-family: bfdi;
+      font-size: 1.3rem;
+    }
+    .releasedate {
+      margin-top: 5px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    @media (max-width: 600px) {
+      .mygames {
+        grid-template-columns: 1fr;
+      }
+      .game {
+        align-items: center;
+        width: 90%;
+      }
+      .game img {
+        width: 120px;
+        height: 90px;
+      }
+      .namegame {
+        font-size: 1rem;
+      }
+      .releasedate {
+        font-size: 0.75rem;
+      }
+    }
+</style>
+<body>
+    <nav class="navbar">
+    <div class="logo">
+      <img class="icon" src="/res/new_alfakma.webp" alt="Logo">
+      <p>Alfakma Jaya</p>
+    </div>
+    <div class="menu-toggle" id="menu-toggle">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="\index.html">Home</a>
+      <a href="index.html">Games</a>
+      <a href="#Social">Social</a>
+    </div>
+  </nav>
+  <main class="hero"  id="home">
+  <div class="title" id="games">Games</div>
+  <div class="info">Here are my games that i've made from 2023:</div>
+    <div class="mygames" id="mygames"></div>
+  </main>    
+  <div class="credit">
+    <p>©Alfakma 2023-2026</p>
+    <a href="feedback/index.html" class="downnav">Feedback</a>
+    <a href="https://www.youtube.com/@alfakmajaya" class="downnav">Youtube</a>
+  </div>
+</body>
+<script src="/nav.js"></script>
+<script>
+    const gamess = [
+    { name: "Coiny Clicker", src: "/res/cc.png", link: "https://alfakma17.github.io/CoinyClicker", releasedate: "1 December 2024", color: "#e4a42c" },
+    { name: "Coiny Clicker 2", src: "/res/cc2.png", link: "https://alfakma17.github.io/CoinyClicker", releasedate: "17 December 2025", color: "#e4a42c" },
+    { name: "3D Planet Clicker", src: "/res/plc.png", link: "https://studio.penguinmod.com/#0876643039", releasedate: "8 July 2025", color: "#1e2b94" },
+    { name: "Don't Touch Red!", src: "/res/dtr.png", link: "https://studio.penguinmod.com/#6451884817", releasedate: "29 October 2025", color: "#ff0000" },
+    { name: "Os Clicker", src: "/res/osc1.webp", link: "https://alfakmagames.itch.io/os-clicker", releasedate: "30 October 2023 (MY 1st GAME EVER)", color: "#2779cc" },
+    { name: "Os Clicker 2", src: "/res/osc2.webp", link: "https://alfakmagames.itch.io/os-clicker-2", releasedate: "1 May 2024", color: "#5ca1e6" },
+    { name: "Os Clicker REMASTERED", src: "/res/oscR.webp", link: "https://studio.penguinmod.com/#1178489008", releasedate: "Still Indev", color: "#83b9f0" },
+    { name: "Test Your Math!", src: "/res/tym.webp", link: "https://studio.penguinmod.com/#0327177090", releasedate: "11 June 2024", color: "#21de2b" },
+    { name: "Test Your Math REMASTERED!", src: "/res/tymR.webp", link: "tymr.html", releasedate: "7 November 2025", color: "#3ad671" },
+    { name: "Super Miner Cat", src: "/res/smc.webp", link: "https://studio.penguinmod.com/#6489431022", releasedate: "26 April 2025", color: "#d6a12b" }
+  ];
+  const gamesContainer = document.getElementById("mygames");
+  gamess.forEach(g => {
+    const a = document.createElement("a");
+    a.href = g.link;
+    a.target = "_blank";
+    a.className = "game";
+    a.innerHTML = `
+      <img src="${g.src}" alt="${g.name}" title="${g.name}">
+      <div class="game-info">
+        <p class="namegame" style="color: ${g.color};">${g.name}</p>
+        <p class="releasedate">${g.releasedate}</p>
+      </div>
+    `;
+    gamesContainer.appendChild(a);
+  });
+</script>
+</html>
