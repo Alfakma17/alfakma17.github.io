@@ -118,6 +118,34 @@
       border-radius: 12px;
       margin-top: 15px;
     }
+    .d2048 {
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 12px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px 5px;
+      font-family: Helvetica, sans-serif;
+      font-size: 2.5rem;
+      color: #ff6a6a;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+    .d2048:hover {
+      transform: scale(1.03);
+      opacity: 0.8;
+    }
+    .d2048 span {
+      font-size: 0.9rem;
+      color: #aa2222;
+      font-family: bfdi;
+      font-weight: 400;
+    }
     @media (max-width: 600px) {
       .intro {
         font-size: 1.15rem;
@@ -165,19 +193,18 @@
     <div class="menu-toggle" id="menu-toggle">
       <div></div>
       <div></div>
-      <div></div>
     </div>
     <div class="nav-links" id="nav-links">
-      <a href="/index.html">Home</a>
-      <a href="games/index.html">Games</a>
-      <a href="#Social">Social</a>
+      <a href="/">Home</a>
+      <a href="games/">Games</a>
     </div>
   </nav>
-  <main class="hero"  id="home">
+  <main class="hero" id="home">
     <div class="banner"></div>
     <div class="intro">Welcome to official Alfakma Website. I made many fun projects and games here</div>
       <p class="info">Call me Alfakma, or my real name is Akma.</p>
       <br>
+    <a href="games/2048/" class="d2048">2048<span>NEW GAME IS OUT!!!</span></a>
     <div class="subtitle">Social media</div>
       <div class="socialmedia" id="socialmedia"></div>
     <div class="subtitle">My Favorite BFDI Characters</div>
@@ -230,6 +257,7 @@
   });
 
   const newsContent = [
+    { title: "10 August, 2026 - 2048!", content: "2048. My favorite game is playable in my own website!" },
     { title: "25 June, 2026 - Revamped!", content: "Erm, yes. I've finally revamped some of my elements in my website. Also i moved the games section into it's own page " },
     { title: "16 May, 2026 - FINALLY!", content: "FINALLY I UPDATED MY WEBSITE! Also i added so you can play Test Your Math REMASTERED in website..." },
     { title: "11 November, 2025 - Audio memes and More games!", content: "Added Audio memes for <i>idk</i> (just random features). Also, i've added more games, including my FIRST GAME EVER!!" },
