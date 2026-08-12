@@ -383,10 +383,11 @@ function setupSwipeControls() {
 
 
     gameBoard.addEventListener("touchend", (e) => {
+    e.preventDefault();
 
-        if (gameEnded) {
-            return;
-        }
+    if (gameEnded) {
+        return;
+    }
 
         let touchEndX = e.changedTouches[0].clientX;
         let touchEndY = e.changedTouches[0].clientY;
@@ -403,7 +404,7 @@ function setupSwipeControls() {
             Math.abs(differenceY) < minSwipeDistance
         ) {
             return;
-        }
+        } { passive: false };
 
 
         // Horizontal swipe
@@ -440,5 +441,5 @@ function setupSwipeControls() {
 
         // Check for Game Over
         checkGameOver();
-    });
+    }, { passive: false });
 }

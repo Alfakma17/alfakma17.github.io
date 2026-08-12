@@ -16,11 +16,11 @@ html, body {
 hr {
     width: 500px;
 }
+
 #board {
     width: 90vw;
     height: 90vw;
 
-    /* Don't let it become huge on desktop */
     max-width: 397px;
     max-height: 397px;
 
@@ -34,6 +34,9 @@ hr {
     grid-template-rows: repeat(4, 1fr);
 
     box-sizing: border-box;
+
+    /* Prevent browser gestures such as pull-to-refresh */
+    touch-action: none;
 }
 
 .tile {
