@@ -1,6 +1,8 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f8fafc;
 }
 html, body {
     margin: 0;
@@ -9,20 +11,23 @@ html, body {
 }
 .title {
     font-family: 'Arial Black', sans-serif;
-    font-size: 70px;
+    font-size: 40px;
     font-weight: bold;
     color: #ff6a6a;
+    padding-top: 20px;
 }
 hr {
     width: 500px;
 }
-
+.info {
+    font-size: 20px;
+}
 #board {
-    width: 90vw;
-    height: 90vw;
+    width: 75vw;
+    height: 75vw;
 
-    max-width: 397px;
-    max-height: 397px;
+    max-width: 357px;
+    max-height: 357px;
 
     background-color: #cdc1b5;
     border: 6px solid #bbada0;
@@ -34,8 +39,6 @@ hr {
     grid-template-rows: repeat(4, 1fr);
 
     box-sizing: border-box;
-
-    /* Prevent browser gestures such as pull-to-refresh */
     touch-action: none;
 }
 
@@ -45,7 +48,7 @@ hr {
 
     border: 5px solid #bbada0;
 
-    font-size: clamp(20px, 9vw, 40px);
+    font-size: clamp(20px, 9vw, 30px);
     font-weight: bold;
 
     display: flex;

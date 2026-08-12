@@ -5,11 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>2048 Game</title>
         <link rel="icon" href="/res/new_alfakma.webp"/>
+        <link rel="stylesheet" href="/style.css">
         <link rel="stylesheet" href="2048.css">
-        <link rel="stylesheet" href="\style.css">
-        <script src="2048.js"></script>
+        <script src="2048.js" defer></script>
     </head>
     <body>
+        
         <nav class="navbar">
             <div class="logo">
             <img class="icon" src="/res/new_alfakma.webp" alt="Logo">
@@ -24,6 +25,7 @@
             <a href="/games">Games</a>
             </div>
         </nav>
+        <main>
         <div class="title">2048</div>
         <hr>
         <h2>Score: <span id="score">0</span></h2>
@@ -35,5 +37,6 @@
         <div class="info">
             <p><br>How to play:<br>Use the arrow keys (or swipe on mobile) to move the tiles. When two tiles with the same number touch, they merge into one!</p>
         </div>
+        </main>
     </body>
 </html>
